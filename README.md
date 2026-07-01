@@ -1,70 +1,252 @@
-# Getting Started with Create React App
+# 🎬 Entertainment App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack Entertainment Web Application built using **React.js**, **Redux Toolkit**, **Node.js**, **Express.js**, and **MongoDB**. The application allows users to explore trending movies, TV series, search content, watch trailers, bookmark favorites, and securely manage their accounts.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Live Demo
 
-### `npm start`
+### 🌐 Frontend
+https://entertainment-app-react-phi.vercel.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ⚙️ Backend
+https://entertainment-app-react.onrender.com
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🔐 User Authentication (Signup & Login using JWT)
+- 🎬 Browse Trending Movies
+- 📺 Explore TV Series
+- 🔍 Search Movies & TV Shows
+- ⭐ Add/Remove Bookmarks
+- 👤 User-specific Bookmarks
+- 🎥 Watch Official Movie Trailers
+- 📄 Detailed Movie Information
+- 📱 Fully Responsive UI
+- 🔒 Protected Routes
+- 🚪 Secure Logout
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend
+- React.js
+- Redux Toolkit
+- React Router DOM
+- Axios
+- Tailwind CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend
+- Node.js
+- Express.js
+- JWT Authentication
+- bcryptjs
+- MongoDB
+- Mongoose
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Database
+- Railway MongoDB
 
 ### Deployment
+- Frontend: Vercel
+- Backend: Render
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### External API
+- TMDB (The Movie Database) API
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📁 Project Structure
+
+```
+Entertainment-App
+│
+├── backend
+│   ├── config
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── services
+│   ├── utils
+│   ├── server.js
+│   └── package.json
+│
+├── public
+├── src
+│   ├── components
+│   ├── pages
+│   ├── redux
+│   ├── services
+│   ├── routes
+│   └── App.js
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Rohan7-cpu/Entertainment-app-React.git
+```
+
+Go to project
+
+```bash
+cd Entertainment-app-React
+```
+
+---
+
+## Frontend Setup
+
+```bash
+npm install
+npm start
+```
+
+Runs on:
+
+```
+http://localhost:3000
+```
+
+---
+
+## Backend Setup
+
+Go to backend folder
+
+```bash
+cd backend
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Create a `.env` file
+
+```env
+PORT=5000
+
+MONGO_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_secret_key
+
+TMDB_API_KEY=your_tmdb_api_key
+```
+
+Start backend
+
+```bash
+npm run dev
+```
+
+Runs on:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 🔑 Environment Variables
+
+Backend
+
+```env
+PORT=
+
+MONGO_URI=
+
+JWT_SECRET=
+
+TMDB_API_KEY=
+```
+
+---
+
+## 📸 Application Screens
+
+- Splash Screen
+- Login Page
+- Signup Page
+- Home (Trending)
+- Search
+- Movies
+- TV Series
+- Movie Details
+- Trailer
+- Bookmarks
+
+---
+
+## API Endpoints
+
+### Authentication
+
+```
+POST /api/auth/register
+
+POST /api/auth/login
+```
+
+### Bookmarks
+
+```
+GET    /api/bookmarks
+
+POST   /api/bookmarks
+
+DELETE /api/bookmarks/:id
+```
+
+---
+
+## Security Features
+
+- JWT Authentication
+- Password Hashing using bcrypt
+- Protected Routes
+- Secure User Sessions
+- Environment Variables for Sensitive Data
+
+---
+
+## Future Enhancements
+
+- User Profile Page
+- Recently Watched
+- Dark/Light Theme
+- Watchlist
+- Ratings & Reviews
+- Pagination
+- Recommendation System
+
+---
+
+## 👨‍💻 Author
+
+**Rohan Panda**
+
+GitHub:
+https://github.com/Rohan7-cpu
+
+LinkedIn:
+(Add your LinkedIn profile)
+
+---
+
+## ⭐ Support
+
+If you found this project useful, don't forget to ⭐ the repository.
