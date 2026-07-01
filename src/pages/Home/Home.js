@@ -4,7 +4,10 @@ import Sidebar from "../../components/Sidebar/SideBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import MediaCard from "../../components/MediaCard/MediaCard";
 
-import { getTrendingMovies ,searchMovies} from "../../services/tmdbApi";
+import {
+  getTrendingMovies,
+  searchMovies,
+} from "../../services/tmdbApi";
 
 function Home() {
   const [search, setSearch] = useState("");
@@ -12,59 +15,47 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  if (search.trim() === "") {
-    fetchTrendingMovies();
-  } else {
-    handleSearch();
-  }
-}, [search]);
+    const fetchData = async () => {
+      try {
+        setLoading(true);
 
-  const fetchTrendingMovies = async () => {
-    try {
-      setLoading(true);
+        if (search.trim() === "") {
+          const data = await getTrendingMovies();
+          setMovies(data);
+        } else {
+          const data = await searchMovies(search);
 
-      const data = await getTrendingMovies();
+          const filtered = data.filter(
+            (item) =>
+              item.media_type === "movie" ||
+              item.media_type === "tv"
+          );
 
-      setMovies(data);
-    } catch (error) {
-      console.error("Error fetching movies:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+          setMovies(filtered);
+        }
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  
-  
-  const handleSearch = async () => {
-  try {
-    setLoading(true);
-
-    const data = await searchMovies(search);
-
-    const filtered = data.filter(
-      (item) =>
-        item.media_type === "movie" ||
-        item.media_type === "tv"
-    );
-
-    setMovies(filtered);
-  } catch (error) {
-    console.log(error);
-  } finally {
-    setLoading(false);
-  }
-};
+    fetchData();
+  }, [search]);
 
   return (
     <div className="bg-[#10141E] min-h-screen flex">
       <Sidebar />
 
       <main className="ml-64 flex-1 p-8">
-        <SearchBar search={search} setSearch={setSearch} />
+        <SearchBar
+          search={search}
+          setSearch={setSearch}
+        />
 
         <h1 className="text-white text-4xl font-light mt-8 mb-8">
           {search ? "Search Results" : "Trending Movies"}
-         </h1>
+        </h1>
 
         {loading ? (
           <div className="text-white text-xl">

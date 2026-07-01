@@ -11,30 +11,32 @@ function Bookmarks() {
   const bookmarks = useSelector(
     (state) => state.bookmarks.bookmarks
   );
+
   const dispatch = useDispatch();
 
-useEffect(() => {
-  fetchBookmarks();
-}, []);
+  useEffect(() => {
+    const fetchBookmarks = async () => {
+      try {
+        const response = await getBookmarks();
 
-const fetchBookmarks = async () => {
-  try {
-    const response = await getBookmarks();
+        const formattedBookmarks = response.data.bookmarks.map(
+          (movie) => ({
+            id: movie.movieId,
+            title: movie.title,
+            poster_path: movie.poster,
+            vote_average: movie.rating,
+            _id: movie._id,
+          })
+        );
 
-  const formattedBookmarks = response.data.bookmarks.map((movie) => ({
-  id: movie.movieId,
-  title: movie.title,
-  poster_path: movie.poster,
-  vote_average: movie.rating,
-  _id: movie._id,
-}));
+        dispatch(setBookmarks(formattedBookmarks));
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-dispatch(setBookmarks(formattedBookmarks));
-
-  } catch (error) {
-    console.log(error);
-  }
-};
+    fetchBookmarks();
+  }, [dispatch]);
 
   return (
     <div className="bg-[#10141E] min-h-screen flex">
